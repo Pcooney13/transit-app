@@ -1,38 +1,285 @@
+:root {
+    --white-10: rgba(255, 255, 255, 0.1);
+    --black-10: rgba(0, 0, 0, 0.1);
+    --black-05: rgba(0, 0, 0, 0.05);
+    --readable-black: #282c34;
+    --primary-color: #3d84c5;
+}
+* {
+    font-family: 'Heebo', sans-serif;
+    box-sizing: border-box;
+}
+ul {
+    padding: 0;
+}
+html.night {
+    background-color: #282c34;
+}
+p {
+    margin: 0;
+}
+
 .App {
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    /* overflow: hidden; */
+}
+img {
+    max-width: 100%;
+}
+.columns {
+    display: flex;
+    padding: 20px;
+    padding-top:20px;
+}
+.column {
+    width: 350px;
+    margin-right: 20px;
+}
+.sidebar {
+    background-color: var(--black-05);
+    min-width: 325px;
+    max-width: 325px;
+    padding: 15px;
+    margin-left: auto;
+    box-shadow: inset 8px 0 16px -6px var(--black-10);
+    color: var(--readable-black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.weather-logo {
+    margin-bottom: 60px;
+}
+.sidebar h1 {
+    margin: 0;
+}
+.date-info {
+    text-transform: uppercase;
+    text-align: center;
+}
+.date {
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.time {
+    font-weight: 300;
+    font-size: 60px;
+    line-height: 1.25;
+}
+.day {
+    letter-spacing: 10px;
+    font-size: 21px;
+}
+.column:last-child {
+    margin-right: 0;
+}
+.Events {
+    position: relative;
+}
+.event {
+    display: flex;
+    flex-direction: column;
+    min-width: 280px;
+}
+#event-list {
+    display: flex;
+    overflow-x: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.event {
+    animation: mymove 30s infinite;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
+}
+.carousel .slide {
+    background: white;
+}
+.carousel .control-dots .dot {
+    background: #f2f2f2;
+    opacity: 0.5;
+    box-shadow: none;
+}
+.carousel.carousel-slider {
+    overflow-y: auto;
+}
+.carousel .control-dots .dot.selected {
+    background: var(--primary-color);
+}
+.carousel .control-dots {
+    top: 200px;
+}
+.carousel .slide img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.line {
+    display: flex;
+    width: 120px;
+    flex-direction: column;
+    align-items: center;
+}
+.weather__info {
+    display: flex;
+    color: var(--primary-color);
+}
+.weather__icon {
+    padding: 10px;
+    height: 120px;
+}
+.weather__time {
+    transform: translateY(10px);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.event__title {
+    color: var(--primary-color);
+    font-size: 21px;
+}
+.event__image {
+    position: relative;
+}
+.event__overlay {
+    height: 100%;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0) 80%,
+        rgba(0, 0, 0, 0.6)
+    );
+    width: 100%;
+    position: absolute;
+}
+/* Bike Info */
+.bike__info {
+    display: flex;
+    margin-left: auto;
+}
+.bike__stock {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right:15px;
+}
+.bike__stock:last-child {
+    margin-right:0;
+}
+.bike__location {
+    width:150px;
+}
+.bike__number {
+    font-size: 32px;
+}
+.bike__block {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f2f2f2;
+}
+.bike__block:last-child {
+    border-bottom:none;
+    padding-bottom:0;
+}
+.component {
+    position: relative;
+    padding: 15px;
+    border: 2px solid var(--black-10);
+    border-radius: 13px;
+    padding-top:20px;
+    margin-bottom:20px;
+}
+.component h1 {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    font-size: 24px;
+    transform: translateY(-50%);
+    background: white;
+    padding: 5px;
+    line-height:1;
+}
+.train__block {
+        display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    border-bottom: 1px solid #f2f2f2;
+}
+.train__block:last-child {
+    border-bottom:none;
+    padding-bottom:0;
+}
+.train__time{
+    margin-left:auto;
+    display:flex;
+}
+.train__time p {
+    /* font-size:24px; */
+    font-weight:300;
+    text-align:right;
+    min-width:30px;
+}
+.train__time p:nth-child(n+3) {
+    display:none;
+}
+.train__time p:after{
+    content:',';
+    margin-left:10px;
+}
+.train__time p:nth-child(2):after {
+    content:'';
+    margin-left:0;
+}
+.train__time p:last-child {
+    margin-right:0;
+}
+.train__id {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 900;
+}
+.train__id.Red {
+    background: #da291c;
+}
+.train__id.Green {
+background: #00843d;
+}
+.train__id.Orange {
+    background: #ed8b00;
+}
+.train__id.Blue {
+    background: #003da5;
+}
+.train__id.Commuter {
+    background: #80276c;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
+.bus__id {
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 5px;
+    background: #ffc72c;
+    margin-right: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 12px;
+    font-weight: 900;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.train__inbound {
+    display:flex;
+}
+.train__outbound {
+    display:flex;
 }
